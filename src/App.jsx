@@ -1,0 +1,22 @@
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
+import MovieDetails from './pages/MovieDetails'
+import Favorites from './pages/Favorites'
+import { FavoritesProvider } from './contexts/FavoritesContext'
+
+const App = () => {
+  return (
+    <FavoritesProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/moviedetails/:id" element={<MovieDetails />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </FavoritesProvider>
+  )
+}
+
+export default App
