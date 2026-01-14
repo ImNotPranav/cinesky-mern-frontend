@@ -21,8 +21,12 @@ export function getBackdropUrl(path) {
   return path ? `https://image.tmdb.org/t/p/original${path}` : "";
 }
 
+export function getProfileUrl(path) {
+  return path ? `https://image.tmdb.org/t/p/w185${path}` : "";
+}
+
 export async function getMovieDetails(id) {
-  const res = await fetch(`${BASE_URL}/movie/${id}`, {
+  const res = await fetch(`${BASE_URL}/movie/${id}?append_to_response=credits`, {
     headers: {
       Authorization: `Bearer ${TOKEN}`,
       "Content-Type": "application/json",
@@ -45,3 +49,26 @@ export async function searchMovies(query) {
   return res.json();
 }
 
+export async function getPersonDetails(id) {
+  const res = await fetch(`${BASE_URL}/person/${id}?append_to_response=movie_credits`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!res.ok) throw new Error("Failed to fetch person details");
+  return res.json();
+}
+
+export async function getReviews(id) {
+  const res = await fetch(`${BASE_URL}/movie/${id}/reviews`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!res.ok) throw new Error("Failed to fetch reviews");
+  return res.json();
+}
