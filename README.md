@@ -26,6 +26,7 @@ CineSky Next is built to provide a smooth and modern movie browsing experience w
 - React.js
 - JavaScript (ES6+)
 - React Router
+- TMDB API
 - Fetch API
 - Tailwind
 
