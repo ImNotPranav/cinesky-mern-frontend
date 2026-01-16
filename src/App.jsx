@@ -5,19 +5,24 @@ import NotFound from './pages/NotFound'
 import MovieDetails from './pages/MovieDetails'
 import CastDetails from './pages/CastDetails'
 import Favorites from './pages/Favorites'
+import Login from './pages/Login'
 import { FavoritesProvider } from './contexts/FavoritesContext'
+import { AuthProvider } from './contexts/AuthContext'
 
 const App = () => {
   return (
-    <FavoritesProvider>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/moviedetails/:id" element={<MovieDetails />} />
-        <Route path="/castdetails/:id" element={<CastDetails />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    </FavoritesProvider>
+    <AuthProvider>
+      <FavoritesProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/moviedetails/:id" element={<MovieDetails />} />
+          <Route path="/castdetails/:id" element={<CastDetails />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/login" element={<Login />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </FavoritesProvider>
+    </AuthProvider>
   )
 }
 
