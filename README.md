@@ -1,48 +1,64 @@
 # 🎬 CineSky Next (Frontend)
 
 **CineSky Next** is a MERN-based movie web application and the successor to my earlier small project **CineSky**.  
-This repository contains only the **frontend** part of the project.
+This repository contains the **frontend** part of the project.
 
 ---
 
-## ✨ About
-
-CineSky Next is built to provide a smooth and modern movie browsing experience with a clean interface, responsive layout, and reusable UI components.
-
----
-
-## 🚀 Features
+## ✨ Features
 
 - 🔍 Search for movies
 - 📈 Browse trending / popular movies
-- 🎞️ View movie details (overview, rating, release date, etc.)
+- 🎞️ View movie details (overview, rating, cast, reviews)
+- 👤 User authentication (signup/login)
+- ❤️ Save favorite movies (synced to database)
 - 📱 Responsive UI (mobile + desktop)
 - ⚡ Fast and interactive React frontend
 
 ---
 
-## 🛠️ Tech Stack (Frontend)
+## 🛠️ Tech Stack
 
-- React.js
-- JavaScript (ES6+)
+- React.js + Vite
 - React Router
+- Tailwind CSS
 - TMDB API
-- Fetch API
-- Tailwind
+- Backend API (JWT auth, MongoDB)
 
 ---
 
-## 📦 Installation & Setup
+## 📦 Setup
 
-### 1) Clone the repository
+### 1) Clone & install
 ```bash
-git clone https://github.com/ImNotPranav/cinesky-mern-frontend.git
-```
-### 2) Install dependencies
-```bash
+git clone https://github.com/ImNotPranav/cinesky.git
+cd cinesky-frontend
 npm install
 ```
-### 3) Run the application
+
+### 2) Create `.env` file
+```env
+VITE_TMDB_TOKEN="your-tmdb-bearer-token"
+VITE_API_URL="http://localhost:4000"
+```
+
+### 3) Run
 ```bash
 npm run dev
 ```
+
+App runs on `http://localhost:5173`
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── api/          # API functions (auth, favorites, movies)
+├── components/   # Navbar, MovieCard, SearchBar, Reviews
+├── contexts/     # AuthContext, FavoritesContext, SearchContext
+├── pages/        # Home, Login, MovieDetails, CastDetails, Favorites
+└── main.jsx      # App entry point
+```
+
